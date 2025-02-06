@@ -131,6 +131,11 @@ CREATE ROW POLICY default_user_filter ON system.tables
 FOR SELECT 
 USING 1 = 1 
 TO ALL EXCEPT user_analytics;
+
+GRANT SELECT ON system.* TO role_analytics;
+GRANT SELECT ON analytics.* TO role_analytics;
+GRANT SHOW TABLES ON system.* TO role_analytics;
+GRANT SHOW TABLES ON analytics.* TO role_analytics;
 ```
 
 If you are on ClickHouse 24.3 or later, no additional steps are required.
